@@ -1,0 +1,9 @@
+{
+  "name": "one-piece-guess-game",
+  "private": true,
+  "description": "Wordle, but for One Piece — daily character picked by a GitHub Actions cron.",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "pick": "python scripts/pick_daily.py"
+  }
+}

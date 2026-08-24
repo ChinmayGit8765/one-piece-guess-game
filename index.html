@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Piece Guess — a daily character riddle</title>
+  <meta name="description" content="Wordle, but for One Piece. Guess the daily character — every wrong guess tells you how close you are on crew, bounty, haki, fruit and more. New pirate every morning, picked by a cron job." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☠️</text></svg>" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">One Piece <span class="mark">Guess</span></a>
+    <nav class="site-nav mono">
+      <a href="https://github.com/ChinmayGit8765/one-piece-guess-game" target="_blank" rel="noopener">SOURCE ↗</a>
+      <a href="https://chinmaygit8765.github.io/exaryn-studio/" target="_blank" rel="noopener">EXARYN ✳</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="poster">
+      <p class="poster-top mono">— MARINE INTELLIGENCE BULLETIN —</p>
+      <h1 class="poster-title">WANTED</h1>
+      <p class="poster-sub">One pirate a day. Identify them from the evidence.</p>
+      <div class="poster-meta mono">
+        <span id="puzzle-label">DAILY #— · LOADING</span>
+        <span class="dot">·</span>
+        <span id="mode-label">DAILY MODE</span>
+      </div>
+      <div class="mode-row mono">
+        <button id="mode-daily" class="mode-btn active">DAILY</button>
+        <button id="mode-free" class="mode-btn">FREE PLAY</button>
+        <button id="new-free" class="mode-btn" hidden>NEW CHARACTER ↻</button>
+      </div>
+    </section>
+
+    <section class="game">
+      <div class="guess-box">
+        <input id="guess-input" type="text" autocomplete="off" spellcheck="false"
+               placeholder="Name a pirate, marine, or menace…" aria-label="Guess a character" />
+        <ul id="suggestions" class="suggestions" hidden></ul>
+      </div>
+
+      <div class="hints mono" id="hints">
+        <button class="hint" id="hint-epithet" disabled>🔒 EPITHET — 3 GUESSES</button>
+        <button class="hint" id="hint-fruit" disabled>🔒 DEVIL FRUIT — 6 GUESSES</button>
+        <button class="hint" id="hint-letter" disabled>🔒 FIRST LETTER — 9 GUESSES</button>
+      </div>
+
+      <div class="board-scroll">
+        <div class="board" id="board">
+          <div class="board-head mono" id="board-head" hidden>
+            <span>CHARACTER</span><span>GENDER</span><span>CREW</span><span>FRUIT</span>
+            <span>HAKI</span><span>BOUNTY</span><span>HEIGHT</span><span>ORIGIN</span><span>DEBUT</span>
+          </div>
+          <div id="rows"></div>
+        </div>
+      </div>
+
+      <div class="result" id="result" hidden></div>
+
+      <div class="legend mono">
+        <span><i class="cell-demo exact"></i> MATCH</span>
+        <span><i class="cell-demo close"></i> CLOSE</span>
+        <span><i class="cell-demo wrong"></i> WRONG</span>
+        <span><b>↑</b> ANSWER IS HIGHER / LATER</span>
+        <span><b>↓</b> ANSWER IS LOWER / EARLIER</span>
+      </div>
+
+      <div class="stats mono" id="stats"></div>
+    </section>
+
+    <footer class="site-footer mono">
+      <span>NEW CHARACTER EVERY MORNING, PICKED BY A <a href="https://github.com/ChinmayGit8765/one-piece-guess-game/blob/main/.github/workflows/daily.yml" target="_blank" rel="noopener">GITHUB ACTIONS CRON</a></span>
+      <span>FAN GAME · NOT AFFILIATED WITH SHUEISHA / TOEI</span>
+      <span>BUILT BY <a href="https://chinmaygit8765.github.io/exaryn-studio/" target="_blank" rel="noopener">EXARYN ✳</a></span>
+    </footer>
+
+  </main>
+
+  <script src="assets/game.js"></script>
+</body>
+</html>
