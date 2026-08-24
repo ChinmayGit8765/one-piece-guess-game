@@ -444,6 +444,10 @@ function startFreePlay() {
 /* ---------- boot ---------- */
 
 (async function init() {
+  // ?embed=1 — chromeless mode for iframing (e.g. on the Exaryn site)
+  if (new URLSearchParams(location.search).has("embed")) {
+    document.querySelector(".site-header")?.remove();
+  }
   await loadData();
   wireInput();
   $("#mode-daily").addEventListener("click", () => mode !== "daily" && startDaily());
